@@ -8,18 +8,17 @@
 #ifndef LCD_16x2_H
 #define	LCD_16x2_H
 
-#include <xc.h>
-#include <stdint.h>
-
-#define USE_LCD_BUSY_FLAG             /**< Use Busy Bit instead of Delay.*/
-#define LCD_ROWS              2u      /**< Total Number of Row in LCD.*/
-#define LCD_COLS              16u     /**< Total Number of Column in LCD.*/
-#define LCD_BUFFER_LEN (LCD_COLS + 1) /**< No of characters in a row buffer.*/
+#include "main.h"
 
 #ifdef	__cplusplus
 extern "C"
 {
 #endif
+
+  // #define USE_LCD_BUSY_FLAG             /**< Use Busy Bit instead of Delay.*/
+#define LCD_ROWS              2u      /**< Total Number of Row in LCD.*/
+#define LCD_COLS              16u     /**< Total Number of Column in LCD.*/
+#define LCD_BUFFER_LEN (LCD_COLS + 1) /**< No of characters in a row buffer.*/
 
 #define LCD_DATA              LATD    /**< LCD Data Port.*/
 #define LCD_DATA_DIR          TRISD   /**< LCD Data Direction Register.*/
@@ -35,12 +34,12 @@ extern "C"
 #define LCD_BUSY_PIN    PORTDbits.RD7 /**< LCD Busy Pin.*/
 #define LCD_BUSY_PIN_DIR      TRISD7  /**< LCD Busy Pin Direction.*/
   
-#define LCD_RS                LATB2   /**< LCD RS Pin.*/
-#define LCD_RS_DIR            TRISB2  /**< LCD RS Direction.*/
-#define LCD_RW                LATB4   /**< LCD RW Pin.*/
-#define LCD_RW_DIR            TRISB4  /**< LCD RW Direction.*/
-#define LCD_EN                LATB5   /**< LCD EN Pin.*/
-#define LCD_EN_DIR            TRISB5  /**< LCD EN Direction.*/
+#define LCD_RS                LATC0   /**< LCD RS Pin.*/
+#define LCD_RS_DIR            TRISC0  /**< LCD RS Direction.*/
+#define LCD_RW                LATC1   /**< LCD RW Pin.*/
+#define LCD_RW_DIR            TRISC1  /**< LCD RW Direction.*/
+#define LCD_EN                LATC2   /**< LCD EN Pin.*/
+#define LCD_EN_DIR            TRISC2  /**< LCD EN Direction.*/
   
 #define LCD_BACKLIT_PIN       0       /**< LCD Back Light Pin.*/
 

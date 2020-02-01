@@ -40,7 +40,7 @@ void LCD_Init(void)
   // Set Back-Lit Pin as Output (If Present)
   
   // Clear Values
-  ANSELD &= ~(0x80);
+  //ANSELD &= ~(0x80);
   LCD_DATA = 0x00;
   LCD_RS = 0;
   LCD_RW = 0;
@@ -177,8 +177,8 @@ uint8_t LCD_Print_Line(uint8_t lcd_line, char *p_lcd_msg)
     display
     */
     // Padding Width must be changed if LCD_COLs
-    int8_t n = sprintf(lcdCharLines[lcd_line],"%-16s", p_lcd_msg);
-    if( n < 0 )
+    // int8_t n = sprintf(lcdCharLines[lcd_line],"%-16s", p_lcd_msg);
+    // if( n < 0 )
       updated = FALSE;
   }
   return updated;     
@@ -251,7 +251,8 @@ static void lcd_busy( void )
  */
 static void lcd_delay_ms( uint32_t ms )
 {
-  uint32_t timestamp = millis();
-  while( millis() - timestamp <= ms );
+//  uint32_t timestamp = millis();
+//  while( millis() - timestamp <= ms );
+  Delay_ms(3);
 }
 #endif
