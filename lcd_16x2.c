@@ -177,8 +177,8 @@ uint8_t LCD_Print_Line(uint8_t lcd_line, char *p_lcd_msg)
     display
     */
     // Padding Width must be changed if LCD_COLs
-    // int8_t n = sprintf(lcdCharLines[lcd_line],"%-16s", p_lcd_msg);
-    // if( n < 0 )
+    int8_t n = sprintf(lcdCharLines[lcd_line],"%-16s", p_lcd_msg);
+    if( n < 0 )
       updated = FALSE;
   }
   return updated;     
@@ -251,8 +251,7 @@ static void lcd_busy( void )
  */
 static void lcd_delay_ms( uint32_t ms )
 {
-//  uint32_t timestamp = millis();
-//  while( millis() - timestamp <= ms );
-  Delay_ms(3);
+  uint32_t timestamp = millis();
+  while( millis() - timestamp <= ms );
 }
 #endif
